@@ -1,0 +1,5 @@
+package com.usermanagement.Userservice.Config;
+
+public class Configuration {
+
+}

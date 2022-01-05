@@ -1,0 +1,59 @@
+package com.usermanagement.Userservice.Controller;
+
+
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.usermanagement.Userservice.Model.SignIn;
+import com.usermanagement.Userservice.Model.Signup;
+
+import com.usermanagement.Userservice.service.UserService;
+
+@RestController
+@RequestMapping("/us")
+public class Controller {
+
+	@Autowired
+	private UserService service;
+	
+	
+
+	@PostMapping("/Register")
+	public Signup saveUser(@RequestBody Signup signup) {
+		service.setId(service.getSequenceNumber(Signup.SEQUENCE_NAME));
+		return service.addUser(signup);
+	}
+	
+	@GetMapping("/allusers")
+	public List<Signup> findAllUsers(){
+	return service.getuser();
+	}
+
+	@PutMapping("/updateUser")
+	public String updateUser(@RequestBody Signup signup) {
+		String result = service.Updateuser(signup);
+		return result;
+	}
+
+	
+	  @DeleteMapping("/deleteUser/{id}") 
+	  public String deleteuser(@PathVariable("id") int id) { 
+		  return service.deleteUser(id); }
+	 
+	
+
+	
+
+	
+	
+}

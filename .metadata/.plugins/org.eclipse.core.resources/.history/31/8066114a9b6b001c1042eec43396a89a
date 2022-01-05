@@ -1,0 +1,5 @@
+server.port=8081
+spring.data.mongodb.uri=mongodb+srv://pottimurthijaswanth:test@cluster0.cjjmp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+spring.data.mongodb.database=carwash-Washer
+spring.application.name=User-Service
+eureka.instance.hostname=localhost

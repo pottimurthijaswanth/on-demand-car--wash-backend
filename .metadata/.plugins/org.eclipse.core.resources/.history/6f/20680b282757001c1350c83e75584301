@@ -1,0 +1,5 @@
+package com.usermanagement.Userservice.Swagger.Config;
+
+public class Configuration {
+
+}

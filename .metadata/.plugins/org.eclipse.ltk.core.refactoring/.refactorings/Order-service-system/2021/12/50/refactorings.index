@@ -1,0 +1,15 @@
+1639048883028	Rename type 'orderDetails'
+1639048904054	Rename type 'OrderDetails'
+1639049423140	Copy compilation unit
+1639138057692	Copy compilation unit
+1639151698549	Delete element
+1639160251797	Rename type 'Orderdetails'
+1639215832700	Rename package 'com.orderservice.Controller'
+1639215857574	Rename package 'com.orderservice.Model'
+1639215872568	Rename package 'com.orderservice.Repository'
+1639215885979	Rename package 'com.orderservice.Service'
+1639215901805	Rename package 'com.orderservice.swagger.Config'
+1639221385796	Copy compilation unit
+1639223725599	Copy compilation unit
+1639223738908	Copy compilation unit
+1639223749962	Copy compilation unit

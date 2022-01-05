@@ -1,0 +1,52 @@
+package com.usermanagement.Userservice.service;
+
+import java.util.List;
+
+import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.usermanagement.Userservice.Model.Signup;
+import com.usermanagement.Userservice.Repo.userRepository;
+
+
+@Service
+public class UserService {
+
+	@Autowired
+	 private userRepository repo;
+	
+	public Signup addUser(Signup signup) {
+		return repo.save(signup);
+	}
+
+	public List<Signup> getuser(){
+		List<Signup> users=repo.findAll();
+		System.out.println("Getting data from DB : " +users);
+		return users;
+	}
+	
+	public String Updateuser(Signup update) {
+	    repo.save(update);
+	    return "user updated";
+	}
+	
+	
+	  public String deleteById(Integer id) { 
+		  repo.deleteById(id); 
+		  return "user deleted"; }
+	 
+
+	
+	  public String deleteUser(Signup user) { 
+		  repo.delete(user);
+		  return "user deleted";
+	  
+	  }
+	  
+	  public String deleteUser(Integer id) { return null; }
+	  
+	 
+	
+
+}

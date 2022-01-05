@@ -1,0 +1,58 @@
+package com.usermanagement.Userservice;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.usermanagement.Userservice.Model.Signup;
+import com.usermanagement.Userservice.Repo.userRepository;
+import com.usermanagement.Userservice.service.UserService;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+class UserserviceApplicationTests {
+
+   @Autowired
+   private UserService serv;
+   
+   @MockBean
+   private userRepository repo;
+	
+	
+	@Test
+	public void getUsersTest() {
+		when(repo.findAll()).thenReturn(Stream
+				.of(new Signup(100,"sai","S1234","S1234",12345423 ,"sai@1234"),
+						new Signup(101,"jash","J2345","J2345",234123432,"jas@7865").collect(Collectors.toList()));
+		assertEquals(2,serv.getuser().size());
+	}
+	
+	@Test
+	public void saveuserTest() {
+		Signup up = new Signup(203,"jahn","J4567","J4567",612312421 ,"jahn@4321");
+		when(repo.save(up)).thenReturn(up);
+		assertEquals(up,serv.addUser(up));
+	}
+
+
+	/*
+	 * @Test public void deleteUserTest() { Signup up = new
+	 * Signup(203,"jahn","J4567","J4567",612312421 ,"jahn@4321");
+	 * serv.deleteUser(up); verify(repo,times(1)).delete(up);
+	 * 
+	 * 
+	 * }
+	 */
+
+}

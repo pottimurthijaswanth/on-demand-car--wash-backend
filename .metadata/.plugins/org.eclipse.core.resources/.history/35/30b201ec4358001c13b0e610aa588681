@@ -1,0 +1,45 @@
+package com.usermanagement.Userservice.service;
+
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.usermanagement.Userservice.Model.SignIn;
+import com.usermanagement.Userservice.Model.Signup;
+import com.usermanagement.Userservice.Repo.userRepository;
+
+@Service
+public class SigninService {
+
+	@Autowired
+	private userRepository rep;
+	
+	public String userLogin(SignIn sin) {
+		ArrayList<Signup> list=(ArrayList<Signup>) rep.findAll();
+		int count=0;
+
+		for(int i=0;i<list.size();i++)
+		{
+
+		if(list.get(i).getName().equals(sin.getName()) && list.get(i).getPassword().equals(sin.getPassword()))
+		{
+
+		count++;
+		}
+		}
+
+		if(count==1)
+		{
+		return "logged in";
+		}
+		else
+		{
+		return "wrong credentials";
+		}
+
+
+
+		}
+		}
+

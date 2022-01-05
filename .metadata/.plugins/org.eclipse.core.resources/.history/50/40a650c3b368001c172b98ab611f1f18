@@ -1,0 +1,164 @@
+package com.orderservice.model;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
+
+@Document(collection="orderDetails")
+public class OrderDet {
+
+@Id
+	
+	private Long orderId;
+    private String carName;
+    private String carModel;
+	private String Name;
+	/* private int washpackId; */
+	private String date;
+	private Long contactno;
+	private String address;
+	
+	@Transient
+    public static final String SEQUENCE_NAME = "users_sequence";
+	
+	public OrderDet() {
+		super();
+	}
+	
+	
+	
+	
+	
+	public OrderDet(String carName, String carModel, String Name, String date,
+			Long contactno, String address) {
+		super();
+		
+		this.carName = carName;
+		this.carModel = carModel;
+		this.Name = Name;
+		/*this.washpackId = washpackId;*/
+		this.date = date;
+		this.contactno = contactno;
+		this.address = address;
+	}
+
+
+
+
+
+	public Long getOrderId() {
+		return orderId;
+	}
+
+
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
+	}
+
+
+	public String getCarName() {
+		return carName;
+	}
+
+
+	public void setCarName(String carName) {
+		this.carName = carName;
+	}
+
+
+	public String getCarModel() {
+		return carModel;
+	}
+
+
+	public void setCarModel(String carModel) {
+		this.carModel = carModel;
+	}
+
+
+	public String getName() {
+		return Name;
+	}
+
+
+	public void setWasherName(String Name) {
+		this.Name = Name;
+	}
+
+
+	/*
+	 * public int getWashpackId() { return washpackId; }
+	 * 
+	 * 
+	 * public void setWashpackId(int washpackId) { this.washpackId = washpackId; }
+	 */
+
+
+	public String getDate() {
+		return date;
+	}
+
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+
+	public Long getContactno() {
+		return contactno;
+	}
+
+
+	public void setContactno(Long contactno) {
+		this.contactno = contactno;
+	}
+
+
+	public String getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	
+	public static String getSequenceName() {
+		return SEQUENCE_NAME;
+	}
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "OrderDet [orderId=" + orderId + ", carName=" + carName + ", carModel=" + carModel + ", Name=" + Name
+				+ ", date=" + date + ", contactno=" + contactno + ", address=" + address + "]";
+	}
+	
+	
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

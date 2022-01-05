@@ -1,0 +1,40 @@
+package com.usermanagement.Userservice.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.usermanagement.Userservice.Model.Signup;
+import com.usermanagement.Userservice.Repo.userRepository;
+
+
+public class UserService {
+
+	@Autowired
+	private userRepository repository;
+
+	public Signup addUser(Signup signup) {
+
+		return repository.save(signup);
+	}
+
+	public List<Signup> getuser() {
+		return repository.findAll();
+	}
+
+	public String Updateuser(Signup signup) {
+		repository.save(signup);
+		return "Updated";
+	}
+
+	public String deleteUser(long id) {
+		repository.deleteById(id);
+		return "deleted";
+	}
+	
+
+
+
+
+}

@@ -1,0 +1,55 @@
+package com.usermanagement.Userservice.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.usermanagement.Userservice.Model.Signup;
+import com.usermanagement.Userservice.Repo.userRepository;
+
+public class UserServiceImpl implements UserService{
+
+	
+	@Autowired
+	private userRepository repo;
+	
+	
+	
+	@Override
+	public Signup addUser(Signup signup) {
+		return repo.save(signup);
+	
+	}
+
+	@Override
+	public List<Signup> getuser() {
+		List<Signup> users=repo.findAll();
+		System.out.println("Getting data from DB : " +users);
+		return users;
+	}
+
+	@Override
+	public String Updateuser(Signup update) {
+		   repo.save(update);
+		    return "user updated";
+	}
+
+	@Override
+	public String deleteById(Integer id) {
+		 repo.deleteById(id); 
+		  return "user deleted";
+	}
+
+	@Override
+	public String deleteUser(Signup user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String deleteUser(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
